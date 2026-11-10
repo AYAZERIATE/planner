@@ -3,8 +3,8 @@ function Story() {
     <main className="story-page">
       <style>{`
         .story-page {
-          background: linear-gradient(145deg, #ffffff 0%, #ececec 100%);
-          color: #000;
+          background: #fff;
+          color: #111;
           font-family: "Inter", "Segoe UI", Arial, sans-serif;
           overflow: hidden;
         }
@@ -13,7 +13,7 @@ function Story() {
         .story-hero {
           position: relative;
           padding: 110px 8% 100px;
-          border-bottom: 2px solid #000;
+          border-bottom: 1px solid #e5e5e5;
         }
 
         .story-eyebrow {
@@ -21,31 +21,25 @@ function Story() {
           margin-bottom: 32px;
           padding: 8px 16px;
           font-size: 12px;
-          font-weight: 700;
-          letter-spacing: 4px;
-          background: #fff;
-          border: 2px solid #000;
+          font-weight: 600;
+          letter-spacing: 3px;
+          color: #111;
+          background: #f5f5f5;
           border-radius: 6px;
-          box-shadow: 4px 4px 0 #000;
         }
 
         .story-hero h1 {
           position: relative;
           z-index: 1;
           margin: 0 0 28px;
-          font-size: clamp(38px, 7vw, 84px);
+          font-size: clamp(38px, 7vw, 80px);
           font-weight: 800;
           line-height: 1.15;
-          text-shadow: 3px 3px 0 #ccc;
         }
 
-        .story-hero h1 span {
-          display: inline-block;
-          padding: 0 14px;
-          background: #000;
-          color: #fff;
-          text-shadow: none;
-          box-shadow: 6px 6px 0 #777;
+        .story-hero h1 span,
+        .story-section h2 span {
+          border-bottom: 5px solid #111;
         }
 
         .story-hero p {
@@ -55,7 +49,7 @@ function Story() {
           margin: 0 0 40px;
           font-size: 18px;
           line-height: 1.8;
-          color: #444;
+          color: #555;
         }
 
         .story-scroll {
@@ -64,23 +58,19 @@ function Story() {
           display: inline-block;
           padding: 14px 26px;
           font-size: 13px;
-          font-weight: 700;
-          letter-spacing: 3px;
-          color: #000;
+          font-weight: 600;
+          letter-spacing: 2px;
+          color: #fff;
           text-decoration: none;
-          background: #fff;
-          border: 2px solid #000;
+          background: #111;
+          border: 1px solid #111;
           border-radius: 8px;
-          box-shadow: 5px 5px 0 #000;
-          transition: transform 0.2s ease, box-shadow 0.2s ease,
-                      background 0.2s ease, color 0.2s ease;
+          transition: background 0.2s ease, color 0.2s ease;
         }
 
         .story-scroll:hover {
-          background: #000;
-          color: #fff;
-          transform: translate(-3px, -3px);
-          box-shadow: 8px 8px 0 #777;
+          background: #fff;
+          color: #111;
         }
 
         .hero-number {
@@ -91,8 +81,8 @@ function Story() {
           font-weight: 800;
           line-height: 1;
           color: transparent;
-          -webkit-text-stroke: 2px #000;
-          opacity: 0.12;
+          -webkit-text-stroke: 2px #111;
+          opacity: 0.08;
           pointer-events: none;
           user-select: none;
         }
@@ -103,17 +93,17 @@ function Story() {
           grid-template-columns: 220px 1fr;
           gap: 48px;
           padding: 90px 8%;
-          border-bottom: 2px solid #000;
+          border-bottom: 1px solid #e5e5e5;
         }
 
         .story-label {
           align-self: start;
           padding-bottom: 10px;
           font-size: 12px;
-          font-weight: 700;
+          font-weight: 600;
           text-transform: uppercase;
-          letter-spacing: 4px;
-          border-bottom: 2px solid #000;
+          letter-spacing: 3px;
+          border-bottom: 1px solid #111;
         }
 
         .story-content,
@@ -123,75 +113,50 @@ function Story() {
 
         .story-section h2 {
           margin: 0 0 28px;
-          font-size: clamp(30px, 5vw, 56px);
+          font-size: clamp(30px, 5vw, 52px);
           font-weight: 800;
           line-height: 1.2;
-          text-shadow: 3px 3px 0 #ccc;
-        }
-
-        .story-section h2 span {
-          display: inline-block;
-          padding: 0 12px;
-          background: #000;
-          color: #fff;
-          text-shadow: none;
-          box-shadow: 5px 5px 0 #777;
         }
 
         .story-section p {
           margin: 0 0 20px;
           font-size: 16px;
           line-height: 1.9;
-          color: #444;
+          color: #555;
         }
 
         .story-section p.story-highlight {
-          padding: 22px 24px;
+          padding: 6px 0 6px 20px;
           font-size: 20px;
-          font-weight: 700;
+          font-weight: 600;
           line-height: 1.6;
-          color: #000;
-          background: #fff;
-          border: 2px solid #000;
-          border-radius: 10px;
-          box-shadow: 6px 6px 0 #000;
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .story-section p.story-highlight:hover {
-          transform: translate(-3px, -3px);
-          box-shadow: 10px 10px 0 #000;
+          color: #111;
+          border-left: 4px solid #111;
         }
 
         /* QUOTE / WHY */
         .story-quote-section {
           padding: 100px 8%;
           text-align: center;
-          background: #000;
+          background: #111;
           color: #fff;
-          border-bottom: 2px solid #000;
         }
 
         .story-quote-section .story-label {
           display: inline-block;
           margin-bottom: 36px;
-          border-bottom: 2px solid #fff;
+          border-bottom: 1px solid #fff;
         }
 
         .story-quote-section h2 {
           margin: 0 0 32px;
-          font-size: clamp(30px, 5vw, 56px);
+          font-size: clamp(30px, 5vw, 52px);
           font-weight: 800;
           line-height: 1.25;
         }
 
         .story-quote-section h2 span {
-          display: inline-block;
-          margin-top: 10px;
-          padding: 0 12px;
-          background: #fff;
-          color: #000;
-          box-shadow: 5px 5px 0 #777;
+          border-bottom: 5px solid #fff;
         }
 
         .story-quote-section p {
@@ -208,28 +173,20 @@ function Story() {
           margin-top: 20px;
           padding: 48px 32px;
           text-align: center;
-          background: #000;
-          color: #fff;
+          background: #f5f5f5;
           border-radius: 10px;
-          box-shadow: 8px 8px 0 #777;
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .future-statement:hover {
-          transform: translate(-3px, -3px);
-          box-shadow: 12px 12px 0 #777;
         }
 
         .future-statement span {
           font-size: 13px;
-          font-weight: 700;
-          letter-spacing: 4px;
-          color: #bdbdbd;
+          font-weight: 600;
+          letter-spacing: 3px;
+          color: #555;
         }
 
         .future-statement h3 {
           margin: 14px 0 0;
-          font-size: clamp(28px, 5vw, 52px);
+          font-size: clamp(28px, 5vw, 48px);
           font-weight: 800;
         }
 
@@ -237,34 +194,33 @@ function Story() {
         .story-ending {
           padding: 110px 8%;
           text-align: center;
+          border-top: 1px solid #e5e5e5;
         }
 
         .story-ending p {
           margin: 0 0 24px;
           font-size: 13px;
-          font-weight: 700;
-          letter-spacing: 4px;
-          color: #444;
+          font-weight: 600;
+          letter-spacing: 3px;
+          color: #555;
         }
 
         .story-ending h2 {
           margin: 0 0 40px;
-          font-size: clamp(32px, 6vw, 68px);
+          font-size: clamp(32px, 6vw, 64px);
           font-weight: 800;
           line-height: 1.2;
-          text-shadow: 3px 3px 0 #ccc;
         }
 
         .story-ending span {
           display: inline-block;
           padding: 14px 24px;
           font-size: 12px;
-          font-weight: 700;
-          letter-spacing: 3px;
-          background: #fff;
-          border: 2px solid #000;
+          font-weight: 600;
+          letter-spacing: 2px;
+          color: #fff;
+          background: #111;
           border-radius: 8px;
-          box-shadow: 6px 6px 0 #000;
         }
 
         /* RESPONSIVE */
