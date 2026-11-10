@@ -1,22 +1,23 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
 import Story from "./pages/Story";
 import About from "./pages/About";
-import Dashboard from "./pages/Dashboard";
-import Footer from "./compenent/footer";
-import Navbar from "./compenent/Navbar";
 import Contact from "./pages/Contact";
+import Dashboard from "./pages/Dashboard";
+
 function App() {
     return (
         <BrowserRouter>
-            <Navbar />
             <Routes>
-                <Route path="/about" element={<About />} />
-                <Route path="/story" element={<Story />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/Contact" element={<Contact />} />
+                {/* Pages b Navbar w Footer */}
+                <Route element={<MainLayout />}>
+                    <Route path="/about" element={<About />} />
+                    <Route path="/story" element={<Story />} />
+                    <Route path="/contact" element={<Contact />} />
+                </Route>
 
+                <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
-            <Footer />
         </BrowserRouter>
     );
 }
