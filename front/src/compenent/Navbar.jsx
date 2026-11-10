@@ -125,7 +125,8 @@ const navigate = useNavigate();
                         placeholder="search"
                     />
                 </div>
-                <button onClick={() => navigate("/dashboard")}>open planner</button>
+                                <div className="button-dashboard">
+                <button onClick={() => navigate("/dashboard")}>open planner</button></div>
             </div>
         </div>
     );
