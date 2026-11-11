@@ -11,11 +11,9 @@ function Tasks() {
     };
 
     const completeTask = (id) => {
-        // 1) radio kayt-check w la carte kat-bda t-fade
         setTasks((prev) =>
             prev.map((t) => (t.id === id ? { ...t, done: true } : t))
         );
-        // 2) mn b3d chwiya, task katmchi
         setTimeout(() => {
             setTasks((prev) => prev.filter((t) => t.id !== id));
         }, 450);
