@@ -1,17 +1,81 @@
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+
 function Story() {
+  const pageRef = useRef(null);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? (window.scrollY / max) * 100 : 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const items = pageRef.current.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    items.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <main className="story-page">
+    <main className="story-page" ref={pageRef}>
       <style>{`
         .story-page {
           background: #fff;
           color: #111;
           font-family: "Inter", "Segoe UI", Arial, sans-serif;
-          overflow: hidden;
+        }
+
+        /* PROGRESS */
+        .story-progress {
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 100;
+          height: 4px;
+          background: #111;
+          box-shadow: 0 0 0 1px #fff;
+        }
+
+        /* REVEAL */
+        .reveal {
+          opacity: 0;
+          transform: translateY(24px);
+          transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+          opacity: 1;
+          transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .reveal {
+            opacity: 1;
+            transform: none;
+            transition: none;
+          }
         }
 
         /* HERO */
         .story-hero {
           position: relative;
+          overflow: hidden;
           padding: 110px 8% 100px;
           border-bottom: 1px solid #e5e5e5;
         }
@@ -98,6 +162,8 @@ function Story() {
 
         .story-label {
           align-self: start;
+          position: sticky;
+          top: 32px;
           padding-bottom: 10px;
           font-size: 12px;
           font-weight: 600;
@@ -143,6 +209,7 @@ function Story() {
         }
 
         .story-quote-section .story-label {
+          position: static;
           display: inline-block;
           margin-bottom: 36px;
           border-bottom: 1px solid #fff;
@@ -165,6 +232,43 @@ function Story() {
           font-size: 17px;
           line-height: 1.9;
           color: #bdbdbd;
+        }
+
+        .story-values {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          max-width: 900px;
+          margin: 48px auto 0;
+        }
+
+        .value-card {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          padding: 24px 20px;
+          text-align: left;
+          border: 1px solid #333;
+          border-radius: 10px;
+          transition: border-color 0.2s ease;
+        }
+
+        .value-card:hover {
+          border-color: #fff;
+        }
+
+        .value-card small {
+          font-size: 11px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          color: #777;
+        }
+
+        .value-card span {
+          font-size: 20px;
+          font-weight: 700;
+          color: #fff;
         }
 
         /* FUTURE */
@@ -212,7 +316,7 @@ function Story() {
           line-height: 1.2;
         }
 
-        .story-ending span {
+        .story-ending > span {
           display: inline-block;
           padding: 14px 24px;
           font-size: 12px;
@@ -223,6 +327,28 @@ function Story() {
           border-radius: 8px;
         }
 
+        .story-cta {
+          display: block;
+          width: fit-content;
+          margin: 28px auto 0;
+          padding: 14px 28px;
+          font-size: 13px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          color: #111;
+          text-decoration: none;
+          background: #fff;
+          border: 1px solid #111;
+          border-radius: 8px;
+          transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .story-cta:hover {
+          color: #fff;
+          background: #111;
+        }
+
         /* RESPONSIVE */
         @media (max-width: 900px) {
           .story-section {
@@ -231,7 +357,12 @@ function Story() {
             padding: 64px 8%;
           }
           .story-label {
+            position: static;
             justify-self: start;
+          }
+          .story-values {
+            grid-template-columns: 1fr;
+            max-width: 480px;
           }
         }
 
@@ -242,6 +373,8 @@ function Story() {
           .future-statement { padding: 36px 20px; }
         }
       `}</style>
+
+      <div className="story-progress" style={{ width: `${progress}%` }} />
 
       <section className="story-hero">
         <span className="story-eyebrow">THE STORY BEHIND US — 2026</span>
@@ -268,7 +401,7 @@ function Story() {
       <section className="story-section who-section" id="our-beginning">
         <div className="story-label">01 — THE BEGINNING</div>
 
-        <div className="story-content">
+        <div className="story-content reveal">
           <h2>Who <span>we are.</span></h2>
 
           <p className="story-highlight">
@@ -310,12 +443,27 @@ function Story() {
           Our purpose is simple: help make planning an essential skill,
           accessible to everyone, and part of the way we learn, work, and grow.
         </p>
+
+        <div className="story-values reveal">
+          <div className="value-card">
+            <small>From</small>
+            <span>Confusion → Clarity</span>
+          </div>
+          <div className="value-card">
+            <small>From</small>
+            <span>Ambition → Action</span>
+          </div>
+          <div className="value-card">
+            <small>From</small>
+            <span>Planning → Skill</span>
+          </div>
+        </div>
       </section>
 
       <section className="story-section future-section">
         <div className="story-label">03 — THE VISION</div>
 
-        <div className="future-content">
+        <div className="future-content reveal">
           <h2>
             We are not here
             <br />
@@ -336,13 +484,13 @@ function Story() {
           </p>
         </div>
 
-        <div className="future-statement">
+        <div className="future-statement reveal">
           <span>THE FUTURE ISN'T WAITING.</span>
           <h3>Let's build it.</h3>
         </div>
       </section>
 
-      <section className="story-ending">
+      <section className="story-ending reveal">
         <p>OUR STORY IS STILL BEING WRITTEN.</p>
         <h2>
           And you can be
@@ -350,6 +498,7 @@ function Story() {
           part of it.
         </h2>
         <span>MAKE A PLAN. MAKE IT HAPPEN. MAKE A DIFFERENCE.</span>
+        <Link to="/dashboard" className="story-cta">Open planner</Link>
       </section>
 
     </main>
