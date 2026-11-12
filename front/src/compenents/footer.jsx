@@ -7,7 +7,7 @@ function Footer() {
             <style>{`
                 .footer {
                     display: grid;
-                    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+                    grid-template-columns: 1.6fr 1fr 1fr;
                     gap: 40px;
                     padding: 56px 8% 48px;
                     background: #111;
@@ -91,12 +91,6 @@ function Footer() {
                 <a href="mailto:contact@example.com">Email</a>
                 <a href="tel:+212600000000">Phone</a>
                 <Link to="/contact">Contact</Link>
-            </div>
-
-            <div className="sec3">
-                <h5>Planner For</h5>
-                <Link to="/enterprise">Enterprise</Link>
-                <Link to="/start-up">Start-Up</Link>
             </div>
         </footer>
     );

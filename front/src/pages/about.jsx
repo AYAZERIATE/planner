@@ -2,9 +2,44 @@ import { Link } from "react-router-dom";
 import Aboutus1 from "../assets/Aboutus1.jpg";
 import Aboutus2 from "../assets/Aboutus2.jpg";
 
-function About(){
+const pillars = [
+    {
+        title: "01. Organize Your Time",
+        text: "Take control of your study schedule by organizing classes, assignments and revision sessions. Build better habits, avoid last-minute stress, and create a balanced routine that keeps you productive without feeling overwhelmed.",
+    },
+    {
+        title: "02. Define Your Goals",
+        text: "Turn your academic ambitions into clear and achievable goals. Break big objectives like passing your exams or landing an internship into smaller milestones, track your progress, and stay motivated.",
+    },
+    {
+        title: "03. Turn Ideas Into Action",
+        text: "Every achievement starts with an idea, but real progress comes from action. Transform your thoughts into structured plans, set deadlines, and take consistent small steps that bring your ideas to life.",
+    },
+];
 
-    return(
+const features = [
+    { title: "Courses", text: "Keep every subject, syllabus and resource in one place." },
+    { title: "Notes", text: "Capture lectures and ideas, and find them again in seconds." },
+    { title: "Schedules", text: "Plan your week around classes, exams and study time." },
+    { title: "Goals", text: "Set targets for each semester and follow your progress." },
+    { title: "Tasks", text: "Track assignments and deadlines so nothing slips through." },
+    { title: "AI Assistant", text: "Get help summarizing notes, planning revisions and staying on track." },
+];
+
+const steps = [
+    { title: "Create your space", text: "Sign up and add your courses for the semester." },
+    { title: "Plan your week", text: "Fill your schedule, set tasks and define your goals." },
+    { title: "Track your progress", text: "Check what you completed and adjust your plan every week." },
+];
+
+const stats = [
+    { number: "2,500+", label: "Students registered", desc: "Organize courses, notes and goals in one place." },
+    { number: "10,000+", label: "Tasks completed", desc: "Turn your to-do list into real progress." },
+    { number: "1,800+", label: "Goals achieved", desc: "Break big ambitions into small, trackable steps." },
+];
+
+function About() {
+    return (
         <div className="about-page">
             <style>{`
                 .about-page {
@@ -22,6 +57,24 @@ function About(){
                     text-transform: uppercase;
                     letter-spacing: 4px;
                     border-bottom: 1px solid #111;
+                }
+
+                .section-title {
+                    margin: 0 0 12px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 4px;
+                    text-align: center;
+                }
+
+                .section-subtitle {
+                    max-width: 560px;
+                    margin: 0 auto 40px;
+                    font-size: 16px;
+                    line-height: 1.8;
+                    text-align: center;
+                    color: #555;
                 }
 
                 .Our-mission {
@@ -47,7 +100,7 @@ function About(){
                     line-height: 1.4;
                 }
 
-                .section1, .section2, .section3 {
+                .info-card {
                     padding: 28px 24px;
                     background: #fafafa;
                     border: 1px solid #e5e5e5;
@@ -55,11 +108,11 @@ function About(){
                     transition: border-color 0.2s ease;
                 }
 
-                .section1:hover, .section2:hover, .section3:hover {
+                .info-card:hover {
                     border-color: #111;
                 }
 
-                .section1 h5, .section2 h5, .section3 h5 {
+                .info-card h5 {
                     margin: 0 0 14px;
                     padding-bottom: 10px;
                     font-size: 13px;
@@ -69,7 +122,55 @@ function About(){
                     border-bottom: 1px solid #e5e5e5;
                 }
 
-                .section1 p, .section2 p, .section3 p {
+                .info-card p {
+                    margin: 0;
+                    font-size: 14px;
+                    line-height: 1.8;
+                    color: #555;
+                }
+
+                .features {
+                    margin-top: 80px;
+                }
+
+                .features-grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 28px;
+                }
+
+                .how-it-works {
+                    margin-top: 80px;
+                }
+
+                .steps {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 28px;
+                }
+
+                .step {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    padding-top: 20px;
+                    border-top: 1px solid #111;
+                }
+
+                .step-number {
+                    font-size: 12px;
+                    font-weight: 600;
+                    letter-spacing: 2px;
+                    color: #777;
+                }
+
+                .step h5 {
+                    margin: 0;
+                    font-size: 18px;
+                    font-weight: 700;
+                }
+
+                .step p {
                     margin: 0;
                     font-size: 14px;
                     line-height: 1.8;
@@ -80,7 +181,7 @@ function About(){
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    margin-top: 72px;
+                    margin-top: 80px;
                     text-align: center;
                 }
 
@@ -198,7 +299,9 @@ function About(){
                 }
 
                 @media (max-width: 900px) {
-                    .Our-mission { grid-template-columns: 1fr; }
+                    .Our-mission,
+                    .features-grid,
+                    .steps { grid-template-columns: 1fr; }
                     .Our-mission h4 { font-size: 24px; }
                     .stats { grid-template-columns: 1fr; max-width: 560px; }
                 }
@@ -211,54 +314,72 @@ function About(){
             `}</style>
 
             <h1>About Us</h1>
+
             <div className="Our-mission">
-                <img src={Aboutus1} alt="Our mission" />
-                <h4>Helping you turn your everyday plans into meaningful achievements.</h4>
-                <div className="section1">
-                    <h5>01. Organize Your Time</h5>
-                    <p>Take control of your daily schedule by organizing your tasks, managing your priorities, and making the most of every moment. Build better habits, avoid unnecessary stress, and create a balanced routine that helps you stay productive without feeling overwhelmed.</p>
-                </div>
-                <div className="section2">
-                    <h5>02. Define Your Goals</h5>
-                    <p>Turn your ambitions into clear and achievable goals. Whether they are personal, academic, or professional, break your big dreams into smaller milestones, track your progress, and stay motivated as you move closer to the results you want.</p>
-                </div>
-                <div className="section3">
-                    <h5>03. Turn Ideas Into Action</h5>
-                    <p>Every great achievement starts with an idea, but real progress comes from taking action. Transform your thoughts into structured plans, create actionable steps, set deadlines, and take consistent small actions that bring your ideas to life.</p>
-                </div>
+                <img src={Aboutus1} alt="Students planning their studies" />
+                <h4>Helping students turn everyday plans into meaningful achievements.</h4>
+                {pillars.map((item) => (
+                    <div className="info-card" key={item.title}>
+                        <h5>{item.title}</h5>
+                        <p>{item.text}</p>
+                    </div>
+                ))}
             </div>
 
+            <section className="features">
+                <h2 className="section-title">Everything You Need</h2>
+                <p className="section-subtitle">
+                    One workspace for your whole student life, from your first lecture to your final exam.
+                </p>
+                <div className="features-grid">
+                    {features.map((item) => (
+                        <div className="info-card" key={item.title}>
+                            <h5>{item.title}</h5>
+                            <p>{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section className="how-it-works">
+                <h2 className="section-title">How It Works</h2>
+                <p className="section-subtitle">Get started in three simple steps.</p>
+                <div className="steps">
+                    {steps.map((item, index) => (
+                        <div className="step" key={item.title}>
+                            <span className="step-number">STEP 0{index + 1}</span>
+                            <h5>{item.title}</h5>
+                            <p>{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
             <div className="who-we-help">
-                <img src={Aboutus2} alt="Who We Help" />
+                <img src={Aboutus2} alt="Who we help" />
                 <h2>Who We Help</h2>
                 <p className="who-intro">
-                    From the first lecture to the first hire, we help people who plan with purpose.
+                    From the first lecture to the final exam, we help students plan with purpose.
                 </p>
 
                 <div className="stats">
-                    <div className="stat-card">
-                        <span className="stat-number">2,500+</span>
-                        <span className="stat-label">Students registered</span>
-                        <span className="stat-desc">Organize courses, notes and goals in one place.</span>
-                    </div>
-                    <div className="stat-card">
-                        <span className="stat-number">120+</span>
-                        <span className="stat-label">Start-Ups registered</span>
-                        <span className="stat-desc">Turn early ideas into clear roadmaps.</span>
-                    </div>
-                    <div className="stat-card">
-                        <span className="stat-number">45+</span>
-                        <span className="stat-label">Enterprises registered</span>
-                        <span className="stat-desc">Keep projects, teams and meetings aligned.</span>
-                    </div>
+                    {stats.map((item) => (
+                        <div className="stat-card" key={item.label}>
+                            <span className="stat-number">{item.number}</span>
+                            <span className="stat-label">{item.label}</span>
+                            <span className="stat-desc">{item.desc}</span>
+                        </div>
+                    ))}
                 </div>
             </div>
 
             <div className="about-cta">
-                <h3>Ready to make a plan?</h3>
-                <p>Join the people who turn plans into results.</p>
+                <h3>Ready to take control of your studies?</h3>
+                <p>Join the students who turn plans into results.</p>
                 <Link to="/dashboard">Open planner</Link>
             </div>
         </div>
-    )
-}export default About;
+    );
+}
+
+export default About;
