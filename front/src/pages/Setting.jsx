@@ -2,6 +2,10 @@ function Settings (){
 
 
     return(
-        <div></div>
+        <div>
+            <h1>Seeting</h1>
+            <div className=""></div>
+              
+        </div>
     )
 }export default Setting;
