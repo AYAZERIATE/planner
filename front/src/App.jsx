@@ -19,6 +19,7 @@ import Notes from "./pages/Notes";
 import Schedules from "./pages/Schedules";
 import Goals from "./pages/Goals";
 import Tasks from "./pages/Tasks";
+import Settings from "./pages/Setting";
 
 function App() {
     return (
@@ -45,6 +46,7 @@ function App() {
                     <Route path="schedules" element={<Schedules />} />
                     <Route path="goals" element={<Goals />} />
                     <Route path="tasks" element={<Tasks />} />
+                    <Route path="settings" element={<Settings />} />
                 </Route>
 
                 <Route path="*" element={<Navigate to="/home" replace />} />

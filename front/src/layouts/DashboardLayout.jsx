@@ -1,12 +1,28 @@
 import { Outlet } from "react-router-dom";
-import Sidebar from "../compenents/sidebar";
+import Sidebar from "../compenents/Sidebar";
 function DashboardLayout() {
     return (
-        <div style={{ display: "flex" }}>
+        <div className="dashboard-layout">
             <Sidebar />
-            <main style={{ flex: 1, padding: "24px" }}>
+            <main className="dashboard-content">
                 <Outlet />
             </main>
+            <style>{`
+                .dashboard-layout {
+                    display: flex;
+                    min-height: 100vh;
+                }
+                .dashboard-content {
+                    flex: 1;
+                    min-width: 0;
+                    padding: 24px;
+                }
+                @media (max-width: 800px) {
+                    .dashboard-layout {
+                        flex-direction: column;
+                    }
+                }
+            `}</style>
         </div>
     );
 }

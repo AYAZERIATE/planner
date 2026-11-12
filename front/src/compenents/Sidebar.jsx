@@ -1,7 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.jpg";
 
 function Sidebar() {
+    const navigate = useNavigate();
+
     return (
         <aside className="sidebar">
             <style>{`
@@ -10,6 +12,7 @@ function Sidebar() {
                     flex-direction: column;
                     gap: 28px;
                     width: 240px;
+                    flex: 0 0 240px;
                     min-height: 100vh;
                     padding: 24px 16px;
                     background: #111;
@@ -26,6 +29,24 @@ function Sidebar() {
                     padding: 4px;
                     background: #fff;
                     border-radius: 8px;
+                }
+
+                .button-home {
+                    width: 100%;
+                    padding: 10px 12px;
+                    font-size: 14px;
+                    font-family: inherit;
+                    color: #fff;
+                    background: transparent;
+                    border: 1px solid #333;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    transition: background 0.2s ease, border-color 0.2s ease;
+                }
+
+                .button-home:hover {
+                    background: #1c1c1c;
+                    border-color: #555;
                 }
 
                 .sidebar-section {
@@ -83,9 +104,9 @@ function Sidebar() {
                 <img src={logo} alt="Logo" />
             </div>
 
-            <div className="sidebar-section">
-                <NavLink to="/dashboard/assistant">AI Assistant</NavLink>
-            </div>
+            <button className="button-home" onClick={() => navigate("/home")}>
+                ← Back to Home
+            </button>
 
             <div className="sidebar-section section-student">
                 <h4>Student</h4>
@@ -94,13 +115,6 @@ function Sidebar() {
                 <NavLink to="/dashboard/schedules">Schedules</NavLink>
                 <NavLink to="/dashboard/goals">Goals</NavLink>
                 <NavLink to="/dashboard/tasks">Tasks</NavLink>
-            </div>
-
-            <div className="sidebar-section section-entreprise">
-                <h4>Entreprise</h4>
-                <NavLink to="/dashboard/projects">Projects</NavLink>
-                <NavLink to="/dashboard/team">Team</NavLink>
-                <NavLink to="/dashboard/meetings">Meetings</NavLink>
             </div>
 
             <div className="sidebar-section sidebar-bottom">

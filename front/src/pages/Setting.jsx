@@ -1,11 +1,9 @@
-function Settings (){
+function Settings() {
+    return (
+        <section>
+            <h1>Settings</h1>
+        </section>
+    );
+}
 
-
-    return(
-        <div>
-            <h1>Seeting</h1>
-            <div className=""></div>
-              
-        </div>
-    )
-}export default Setting;
+export default Settings;
