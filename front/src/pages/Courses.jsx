@@ -95,55 +95,72 @@ function Courses() {
                     flex-direction: column;
                     align-items: center;
                     width: 100%;
-                    padding: 24px 0 64px;
+                    min-height: 100vh;
+                    padding: 40px 16px 72px;
                     text-align: center;
                     font-family: "Inter", "Segoe UI", Arial, sans-serif;
                     color: #111;
+                    box-sizing: border-box;
+                    /* papier a points (dot grid) */
+                    background-color: #fffdf7;
+                    background-image: radial-gradient(#d9d4c3 1.2px, transparent 1.2px);
+                    background-size: 22px 22px;
                 }
 
+                /* ===== titre b highlighter + sticker ===== */
                 .courses-page h1 {
                     position: relative;
                     z-index: 0;
                     display: inline-block;
-                    margin: 0 0 32px;
-                    font-size: 40px;
+                    margin: 0 0 36px;
+                    font-size: 46px;
                     font-weight: 800;
-                    letter-spacing: -1px;
+                    letter-spacing: -1.5px;
                 }
 
                 .courses-page h1::after {
                     content: "";
                     position: absolute;
-                    left: -6px;
-                    right: -6px;
+                    left: -10px;
+                    right: -10px;
                     bottom: 4px;
-                    height: 14px;
-                    background: #d6e9ff;
-                    border-radius: 4px;
-                    transform: rotate(-1deg);
+                    height: 18px;
+                    background: linear-gradient(90deg, #ffd6d6, #fff3b0, #d6e9ff);
+                    border-radius: 6px;
+                    transform: rotate(-1.5deg);
                     z-index: -1;
+                }
+
+                .courses-page h1::before {
+                    content: "✏️";
+                    position: absolute;
+                    top: -18px;
+                    right: -38px;
+                    font-size: 28px;
+                    transform: rotate(18deg);
+                    animation: wiggle 2.4s ease-in-out infinite;
                 }
 
                 .courses-content {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    gap: 28px;
+                    gap: 32px;
                     width: 100%;
                 }
 
-                /* input dyal type jdid (kayban mnin t-clicki Add type) */
+                /* ===== input dyal type jdid ===== */
                 .text {
                     display: flex;
                     gap: 10px;
                     width: 100%;
                     max-width: 420px;
-                    animation: slideIn 0.25s ease;
+                    animation: slideIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
                 }
 
                 .text input {
                     flex: 1;
-                    padding: 12px 14px;
+                    padding: 12px 18px;
                     font-family: inherit;
                     font-size: 14px;
                     color: #111;
@@ -151,54 +168,66 @@ function Courses() {
                     border: 2px solid #111;
                     border-radius: 999px;
                     box-sizing: border-box;
+                    transition: box-shadow 0.2s ease, transform 0.2s ease;
                 }
 
                 .text input:focus {
                     outline: none;
-                    box-shadow: 4px 4px 0 #111;
+                    transform: translate(-2px, -2px);
+                    box-shadow: 4px 4px 0 #ff9f9f;
                 }
 
                 .type-confirm {
-                    width: 44px;
+                    width: 46px;
                     font-size: 18px;
-                    color: #fff;
-                    background: #111;
-                    border: none;
+                    color: #111;
+                    background: #b8f0b0;
+                    border: 2px solid #111;
                     border-radius: 50%;
+                    box-shadow: 2px 2px 0 #111;
                     cursor: pointer;
-                    transition: transform 0.2s ease;
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
                 }
 
-                .type-confirm:hover { transform: scale(1.1); }
+                .type-confirm:hover {
+                    transform: translate(-2px, -2px) rotate(-8deg);
+                    box-shadow: 4px 4px 0 #111;
+                }
 
                 .add_type {
-                    padding: 12px 32px;
+                    padding: 13px 32px;
                     font-size: 14px;
-                    font-weight: 700;
+                    font-weight: 800;
                     letter-spacing: 1px;
-                    color: #fff;
-                    background: #111;
-                    border: none;
+                    color: #111;
+                    background: #ffd84d;
+                    border: 2px solid #111;
                     border-radius: 999px;
+                    box-shadow: 4px 4px 0 #111;
                     cursor: pointer;
-                    transition: background 0.2s ease, transform 0.2s ease;
+                    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
                 }
 
                 .add_type:hover {
-                    background: #333;
-                    transform: translateY(-3px) scale(1.04);
+                    transform: translate(-3px, -3px) rotate(-2deg);
+                    box-shadow: 7px 7px 0 #111;
+                }
+
+                .add_type:active {
+                    transform: translate(2px, 2px);
+                    box-shadow: 1px 1px 0 #111;
                 }
 
                 .types-container {
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: center;
-                    gap: 28px 20px;
+                    gap: 34px 26px;
                     width: 100%;
-                    max-width: 960px;
+                    max-width: 980px;
                 }
 
-                /* carte b chkl mojalad */
+                /* ===== dossiers colores ===== */
                 .type-card {
                     position: relative;
                     display: flex;
@@ -206,55 +235,94 @@ function Courses() {
                     align-items: center;
                     justify-content: center;
                     gap: 8px;
-                    width: 200px;
-                    min-height: 120px;
-                    margin-top: 14px;
-                    padding: 20px 16px;
-                    background: #fff;
+                    width: 210px;
+                    min-height: 130px;
+                    margin-top: 16px;
+                    padding: 22px 16px;
+                    background: #fff3b0;
                     border: 2px solid #111;
-                    border-radius: 0 14px 14px 14px;
-                    box-shadow: 4px 4px 0 #111;
+                    border-radius: 0 16px 16px 16px;
+                    box-shadow: 5px 5px 0 #111;
                     box-sizing: border-box;
                     cursor: pointer;
-                    animation: pop 0.35s ease;
-                    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+                    transform: rotate(-1.5deg);
+                    animation: pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+                    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
                 }
 
+                .type-card:nth-child(even) { transform: rotate(1.3deg); }
+
+                .type-card:nth-child(5n + 1) { background: #fff3b0; }
+                .type-card:nth-child(5n + 2) { background: #ffd6d6; }
+                .type-card:nth-child(5n + 3) { background: #d6e9ff; }
+                .type-card:nth-child(5n + 4) { background: #d9f5d6; }
+                .type-card:nth-child(5n) { background: #e9dcff; }
+
+                .type-card:nth-child(1) { animation-delay: 0.02s; }
+                .type-card:nth-child(2) { animation-delay: 0.06s; }
+                .type-card:nth-child(3) { animation-delay: 0.10s; }
+                .type-card:nth-child(4) { animation-delay: 0.14s; }
+                .type-card:nth-child(5) { animation-delay: 0.18s; }
+                .type-card:nth-child(6) { animation-delay: 0.22s; }
+                .type-card:nth-child(7) { animation-delay: 0.26s; }
+                .type-card:nth-child(8) { animation-delay: 0.30s; }
+
+                /* tab dyal dossier */
                 .type-card::before {
                     content: "";
                     position: absolute;
-                    top: -16px;
+                    top: -18px;
                     left: -2px;
-                    width: 70px;
-                    height: 16px;
+                    width: 76px;
+                    height: 18px;
                     background: inherit;
                     border: 2px solid #111;
                     border-bottom: none;
-                    border-radius: 8px 8px 0 0;
+                    border-radius: 10px 10px 0 0;
                 }
 
-                .type-card:nth-child(5n + 1):hover { background: #fff3b0; }
-                .type-card:nth-child(5n + 2):hover { background: #ffd6d6; }
-                .type-card:nth-child(5n + 3):hover { background: #d6e9ff; }
-                .type-card:nth-child(5n + 4):hover { background: #d9f5d6; }
-                .type-card:nth-child(5n):hover { background: #e9dcff; }
+                /* emoji decoratif f l coin */
+                .type-card::after {
+                    content: "📁";
+                    position: absolute;
+                    right: 12px;
+                    bottom: 8px;
+                    font-size: 20px;
+                    opacity: 0.85;
+                    transition: transform 0.3s ease;
+                }
+
+                .type-card:nth-child(5n + 1)::after { content: "⭐"; }
+                .type-card:nth-child(5n + 2)::after { content: "📚"; }
+                .type-card:nth-child(5n + 3)::after { content: "💡"; }
+                .type-card:nth-child(5n + 4)::after { content: "🌱"; }
+                .type-card:nth-child(5n)::after { content: "🚀"; }
 
                 .type-card:hover {
-                    transform: translate(-3px, -3px);
-                    box-shadow: 7px 7px 0 #111;
+                    transform: translate(-4px, -6px) rotate(0deg) scale(1.04);
+                    box-shadow: 9px 10px 0 #111;
+                }
+
+                .type-card:hover::after {
+                    transform: rotate(20deg) scale(1.3);
                 }
 
                 .type-card h3 {
                     margin: 0;
-                    font-size: 16px;
-                    font-weight: 700;
-                    line-height: 1.4;
+                    font-size: 17px;
+                    font-weight: 800;
+                    line-height: 1.35;
                 }
 
                 .type-count {
-                    font-size: 12px;
-                    font-weight: 600;
-                    color: #777;
+                    padding: 3px 12px;
+                    font-size: 11px;
+                    font-weight: 700;
+                    letter-spacing: 0.5px;
+                    color: #111;
+                    background: rgba(255, 255, 255, 0.75);
+                    border: 1.5px solid #111;
+                    border-radius: 999px;
                 }
 
                 .type-delete,
@@ -262,9 +330,11 @@ function Courses() {
                     position: absolute;
                     top: 6px;
                     right: 10px;
+                    z-index: 2;
                     padding: 0;
-                    font-size: 18px;
-                    color: #999;
+                    font-size: 20px;
+                    line-height: 1;
+                    color: #666;
                     background: none;
                     border: none;
                     cursor: pointer;
@@ -273,55 +343,88 @@ function Courses() {
 
                 .type-delete:hover,
                 .lesson-delete:hover {
-                    color: #111;
-                    transform: rotate(90deg);
+                    color: #e03131;
+                    transform: rotate(90deg) scale(1.2);
                 }
 
-                /* vue dyal type mftou7: blassa dyal l cours */
+                /* ===== vue dyal type mftou7 ===== */
                 .back-btn {
-                    padding: 8px 20px;
+                    padding: 9px 22px;
                     font-size: 13px;
-                    font-weight: 600;
+                    font-weight: 700;
                     color: #111;
                     background: #fff;
                     border: 2px solid #111;
                     border-radius: 999px;
+                    box-shadow: 3px 3px 0 #111;
                     cursor: pointer;
-                    transition: background 0.2s ease, color 0.2s ease;
+                    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
                 }
 
                 .back-btn:hover {
-                    color: #fff;
-                    background: #111;
+                    background: #d6e9ff;
+                    transform: translate(-2px, -2px);
+                    box-shadow: 5px 5px 0 #111;
                 }
 
                 .folder-title {
+                    position: relative;
+                    z-index: 0;
                     margin: 0;
-                    font-size: 28px;
+                    padding: 0 6px;
+                    font-size: 32px;
                     font-weight: 800;
+                    letter-spacing: -0.5px;
                 }
 
+                .folder-title::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 3px;
+                    height: 12px;
+                    background: #ffd84d;
+                    border-radius: 4px;
+                    transform: rotate(-1deg);
+                    z-index: -1;
+                }
+
+                /* ===== formulaire = page de cahier ===== */
                 .lesson-form {
                     display: flex;
                     flex-direction: column;
                     gap: 14px;
                     width: 100%;
-                    max-width: 520px;
-                    padding: 24px;
-                    background: #fff;
-                    border: 2px dashed #111;
-                    border-radius: 16px;
+                    max-width: 540px;
+                    padding: 28px 24px 24px 44px;
+                    background: #fffef9;
+                    border: 2px solid #111;
+                    border-radius: 12px;
                     box-shadow: 8px 8px 0 #111;
                     box-sizing: border-box;
+                    position: relative;
+                    transform: rotate(-0.6deg);
+                }
+
+                /* marge rouge dyal cahier */
+                .lesson-form::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 30px;
+                    width: 2px;
+                    background: #ff9f9f;
                 }
 
                 .lesson-form h4 {
                     margin: 0;
                     font-size: 12px;
-                    font-weight: 600;
+                    font-weight: 700;
                     text-transform: uppercase;
-                    letter-spacing: 2px;
-                    color: #777;
+                    letter-spacing: 3px;
+                    color: #888;
                 }
 
                 .lesson-form input,
@@ -330,88 +433,155 @@ function Courses() {
                     padding: 12px;
                     font-family: inherit;
                     font-size: 14px;
-                    text-align: center;
                     color: #111;
-                    background: #fafafa;
-                    border: 1px solid #e5e5e5;
-                    border-radius: 8px;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 2px dashed #bbb;
+                    border-radius: 0;
                     box-sizing: border-box;
                     transition: border-color 0.2s ease, background 0.2s ease;
                 }
 
+                .lesson-form input {
+                    text-align: left;
+                    font-weight: 700;
+                    font-size: 16px;
+                }
+
+                /* textarea b khotout dyal cahier */
                 .lesson-form textarea {
-                    min-height: 130px;
-                    line-height: 1.6;
+                    min-height: 150px;
+                    line-height: 28px;
+                    text-align: left;
                     resize: vertical;
+                    border-bottom: none;
+                    background-image: repeating-linear-gradient(
+                        transparent,
+                        transparent 27px,
+                        #cfe0f5 27px,
+                        #cfe0f5 28px
+                    );
+                    background-attachment: local;
                 }
 
                 .lesson-form input:focus,
                 .lesson-form textarea:focus {
                     outline: none;
-                    background: #fff;
                     border-color: #111;
+                }
+
+                .lesson-form input:focus {
+                    background: #fff8d6;
                 }
 
                 .lessons-grid {
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: center;
-                    gap: 24px;
+                    gap: 32px 26px;
                     width: 100%;
-                    max-width: 960px;
+                    max-width: 980px;
                 }
 
+                /* ===== lessons = sticky notes ===== */
                 .lesson-card {
                     position: relative;
                     width: 280px;
-                    padding: 24px 20px 18px;
+                    padding: 30px 20px 20px;
                     text-align: left;
-                    background: #fff;
+                    background: #fff3b0;
                     border: 2px solid #111;
-                    border-radius: 12px;
-                    box-shadow: 4px 4px 0 #111;
+                    border-radius: 4px 4px 18px 4px;
+                    box-shadow: 5px 5px 0 #111;
                     box-sizing: border-box;
-                    animation: pop 0.35s ease;
+                    transform: rotate(-1.5deg);
+                    animation: pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+                    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+                }
+
+                .lesson-card:nth-child(4n + 1) { background: #fff3b0; }
+                .lesson-card:nth-child(4n + 2) { background: #ffd6d6; transform: rotate(1.4deg); }
+                .lesson-card:nth-child(4n + 3) { background: #d6e9ff; transform: rotate(-0.8deg); }
+                .lesson-card:nth-child(4n) { background: #d9f5d6; transform: rotate(1.8deg); }
+
+                .lesson-card:hover {
+                    transform: translate(-3px, -6px) rotate(0deg) scale(1.03);
+                    box-shadow: 9px 10px 0 #111;
+                }
+
+                /* scotch f lfo9 */
+                .lesson-card::before {
+                    content: "";
+                    position: absolute;
+                    top: -13px;
+                    left: 50%;
+                    width: 78px;
+                    height: 24px;
+                    background: rgba(255, 255, 255, 0.7);
+                    border: 1.5px dashed rgba(0, 0, 0, 0.3);
+                    transform: translateX(-50%) rotate(-3deg);
                 }
 
                 .lesson-card h3 {
                     margin: 0 0 4px;
                     padding-right: 20px;
-                    font-size: 17px;
-                    font-weight: 700;
+                    font-size: 18px;
+                    font-weight: 800;
                 }
 
                 .lesson-date {
-                    display: block;
-                    margin-bottom: 10px;
+                    display: inline-block;
+                    margin-bottom: 12px;
+                    padding: 2px 10px;
                     font-size: 11px;
+                    font-weight: 700;
                     text-transform: uppercase;
                     letter-spacing: 1.5px;
-                    color: #999;
+                    color: #111;
+                    background: rgba(255, 255, 255, 0.7);
+                    border: 1.5px solid #111;
+                    border-radius: 999px;
                 }
 
                 .lesson-card p {
                     margin: 0;
                     font-size: 14px;
-                    line-height: 1.6;
+                    line-height: 1.7;
                     white-space: pre-wrap;
-                    color: #333;
+                    color: #222;
                 }
 
                 .empty {
                     margin: 0;
+                    padding: 16px 28px;
                     font-size: 14px;
-                    color: #999;
+                    font-weight: 600;
+                    color: #777;
+                    background: #fff;
+                    border: 2px dashed #bbb;
+                    border-radius: 14px;
                 }
 
                 @keyframes pop {
-                    from { opacity: 0; transform: scale(0.8); }
-                    to { opacity: 1; transform: scale(1); }
+                    0% { opacity: 0; transform: scale(0.6) rotate(-6deg); }
+                    100% { opacity: 1; }
                 }
 
                 @keyframes slideIn {
-                    from { opacity: 0; transform: translateY(-8px); }
-                    to { opacity: 1; transform: translateY(0); }
+                    from { opacity: 0; transform: translateY(-12px) scale(0.95); }
+                    to { opacity: 1; transform: translateY(0) scale(1); }
+                }
+
+                @keyframes wiggle {
+                    0%, 100% { transform: rotate(18deg); }
+                    50% { transform: rotate(-4deg) translateY(-3px); }
+                }
+
+                @media (max-width: 560px) {
+                    .courses-page h1 { font-size: 34px; }
+                    .courses-page h1::before { right: -30px; font-size: 22px; }
+                    .type-card, .lesson-card { width: 100%; max-width: 320px; }
+                    .lesson-form { padding-left: 38px; }
                 }
             `}</style>
 
@@ -501,7 +671,7 @@ function Courses() {
                     </div>
 
                     {selected.lessons.length === 0 ? (
-                        <p className="empty">No lessons yet. Write your first one.</p>
+                        <p className="empty">No lessons yet. Write your first one ✍️</p>
                     ) : (
                         <div className="lessons-grid">
                             {selected.lessons.map((lesson) => (

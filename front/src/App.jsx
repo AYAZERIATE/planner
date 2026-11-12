@@ -10,8 +10,7 @@ import About from "./pages/about";
 import Story from "./pages/Story";
 import NewArrivals from "./pages/NewArrivals";
 import Contact from "./pages/Contact";
-import Enterprise from "./pages/Enterprise";
-import StartUp from "./pages/StartUp";
+
 
 // pages dyal dashboard (DashboardLayout)
 import Courses from "./pages/Courses";
@@ -34,8 +33,7 @@ function App() {
                     <Route path="/story" element={<Story />} />
                     <Route path="/new-arrivals" element={<NewArrivals />} />
                     <Route path="/contact" element={<Contact />} />
-                    <Route path="/enterprise" element={<Enterprise />} />
-                    <Route path="/start-up" element={<StartUp />} />
+                   
                 </Route>
 
                 {/* Dashboard pages */}

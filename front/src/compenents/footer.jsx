@@ -32,7 +32,7 @@ function Footer() {
                     color: #a3a3a3;
                 }
 
-                .sec1, .sec2, .sec3 {
+                .sec1, .sec2 {
                     display: flex;
                     flex-direction: column;
                     gap: 12px;
@@ -63,7 +63,9 @@ function Footer() {
                 }
 
                 @media (max-width: 900px) {
-                    .footer { grid-template-columns: 1fr 1fr; }
+                    .footer {
+                        grid-template-columns: 1fr 1fr;
+                    }
                 }
 
                 @media (max-width: 560px) {

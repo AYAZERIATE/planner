@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../compenents/Sidebar";
+
 function DashboardLayout() {
     return (
         <div className="dashboard-layout">

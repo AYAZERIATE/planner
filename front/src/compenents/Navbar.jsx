@@ -1,6 +1,6 @@
 import { useState } from "react";
-import logo from "../assets/logo.jpg";
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/logo.jpg";
 
 function Navbar() {
     const [search, setSearch] = useState("");
@@ -101,7 +101,7 @@ function Navbar() {
                         type="text"
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
-                        placeholder="search"
+                        placeholder="Search"
                     />
                 </div>
                 <div className="button-dashboard">
