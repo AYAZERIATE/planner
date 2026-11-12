@@ -19,12 +19,16 @@ import Schedules from "./pages/Schedules";
 import Goals from "./pages/Goals";
 import Tasks from "./pages/Tasks";
 import Settings from "./pages/Setting";
+import Login from "./pages/login";
+import Signin from "./pages/signin";
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Navigate to="/home" replace />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signin" element={<Signin />} />
 
                 {/* Site pages */}
                 <Route element={<MainLayout />}>
