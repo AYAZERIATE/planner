@@ -8,7 +8,6 @@ import DashboardLayout from "./layouts/DashboardLayout";
 import Home from "./pages/Home";
 import About from "./pages/about";
 import Story from "./pages/Story";
-import NewArrivals from "./pages/NewArrivals";
 import Contact from "./pages/Contact";
 
 
@@ -35,7 +34,6 @@ function App() {
                     <Route path="/home" element={<Home />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/story" element={<Story />} />
-                    <Route path="/new-arrivals" element={<NewArrivals />} />
                     <Route path="/contact" element={<Contact />} />
                    
                 </Route>

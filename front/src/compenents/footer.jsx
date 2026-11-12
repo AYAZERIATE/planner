@@ -85,7 +85,6 @@ function Footer() {
                 <h5>Information</h5>
                 <Link to="/about">About Us</Link>
                 <Link to="/story">Our Story</Link>
-                <Link to="/new-arrivals">New Arrivals</Link>
             </div>
 
             <div className="sec2">
