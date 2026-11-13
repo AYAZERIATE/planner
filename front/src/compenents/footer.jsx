@@ -10,9 +10,12 @@ function Footer() {
                     grid-template-columns: 1.6fr 1fr 1fr;
                     gap: 40px;
                     padding: 56px 8% 48px;
-                    background: #111;
-                    color: #fff;
+                    color: #111;
                     font-family: "Inter", "Segoe UI", Arial, sans-serif;
+                    background-color: #f5efdc;
+                    background-image: radial-gradient(#d2cbb2 1.2px, transparent 1.2px);
+                    background-size: 22px 22px;
+                    border-top: 2px solid #111;
                 }
 
                 .footer-logo img {
@@ -21,15 +24,18 @@ function Footer() {
                     object-fit: contain;
                     padding: 8px;
                     background: #fff;
+                    border: 2px solid #111;
                     border-radius: 8px;
+                    box-shadow: 3px 3px 0 #111;
                 }
 
                 .footer-logo p {
                     margin: 20px 0 0;
                     max-width: 280px;
                     font-size: 14px;
+                    font-weight: 500;
                     line-height: 1.7;
-                    color: #a3a3a3;
+                    color: #444;
                 }
 
                 .sec1, .sec2 {
@@ -42,24 +48,28 @@ function Footer() {
                     margin: 0 0 8px;
                     padding-bottom: 10px;
                     font-size: 13px;
-                    font-weight: 600;
+                    font-weight: 700;
                     text-transform: uppercase;
                     letter-spacing: 2px;
-                    color: #fff;
-                    border-bottom: 1px solid #333;
+                    color: #111;
+                    border-bottom: 2px dashed #bbb;
                 }
 
                 .footer a {
                     width: fit-content;
+                    padding: 2px 6px;
+                    margin-left: -6px;
                     font-size: 14px;
-                    color: #a3a3a3;
+                    font-weight: 600;
+                    color: #111;
                     text-decoration: none;
-                    transition: color 0.2s ease;
+                    border-radius: 6px;
+                    transition: background 0.2s ease;
                 }
 
                 .footer a:hover {
-                    color: #fff;
-                    text-decoration: underline;
+                    background: #ffd84d;
+                    text-decoration: none;
                 }
 
                 @media (max-width: 900px) {

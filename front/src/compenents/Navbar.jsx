@@ -15,9 +15,12 @@ function Navbar() {
                     justify-content: space-between;
                     gap: 24px;
                     padding: 14px 8%;
-                    background: #111;
-                    color: #fff;
+                    color: #111;
                     font-family: "Inter", "Segoe UI", Arial, sans-serif;
+                    background-color: #f5efdc;
+                    background-image: radial-gradient(#d2cbb2 1.2px, transparent 1.2px);
+                    background-size: 22px 22px;
+                    border-bottom: 2px solid #111;
                 }
 
                 .navbar-logo img {
@@ -27,7 +30,9 @@ function Navbar() {
                     object-fit: contain;
                     padding: 4px;
                     background: #fff;
+                    border: 2px solid #111;
                     border-radius: 8px;
+                    box-shadow: 3px 3px 0 #111;
                 }
 
                 .search-bar {
@@ -38,45 +43,51 @@ function Navbar() {
                 .search-bar input {
                     width: 100%;
                     box-sizing: border-box;
-                    padding: 11px 16px;
+                    padding: 11px 18px;
                     font-size: 14px;
                     font-family: inherit;
-                    color: #fff;
-                    background: #1c1c1c;
-                    border: 1px solid #333;
-                    border-radius: 8px;
+                    color: #111;
+                    background: #fff;
+                    border: 2px solid #111;
+                    border-radius: 999px;
                     outline: none;
-                    transition: border-color 0.2s ease, background 0.2s ease;
+                    transition: box-shadow 0.2s ease, transform 0.2s ease;
                 }
 
                 .search-bar input::placeholder {
-                    color: #a3a3a3;
+                    color: #888;
                     text-transform: capitalize;
                 }
 
                 .search-bar input:focus {
-                    background: #222;
-                    border-color: #fff;
+                    transform: translate(-2px, -2px);
+                    box-shadow: 4px 4px 0 #ff9f9f;
                 }
 
                 .button-dashboard button {
-                    padding: 11px 22px;
+                    padding: 11px 24px;
                     font-size: 13px;
-                    font-weight: 600;
+                    font-weight: 800;
                     font-family: inherit;
                     text-transform: uppercase;
                     letter-spacing: 1.5px;
                     color: #111;
-                    background: #fff;
-                    border: 1px solid #fff;
-                    border-radius: 8px;
+                    background: #ffd84d;
+                    border: 2px solid #111;
+                    border-radius: 999px;
+                    box-shadow: 3px 3px 0 #111;
                     cursor: pointer;
-                    transition: background 0.2s ease, color 0.2s ease;
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
                 }
 
                 .button-dashboard button:hover {
-                    background: transparent;
-                    color: #fff;
+                    transform: translate(-2px, -2px);
+                    box-shadow: 5px 5px 0 #111;
+                }
+
+                .button-dashboard button:active {
+                    transform: translate(2px, 2px);
+                    box-shadow: 1px 1px 0 #111;
                 }
 
                 @media (max-width: 700px) {
