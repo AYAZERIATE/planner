@@ -24,19 +24,47 @@ function Contact() {
                 .contact-page {
                     min-height: 70vh;
                     padding: 72px 8% 80px;
-                    background: #fff;
                     color: #111;
                     font-family: "Inter", "Segoe UI", Arial, sans-serif;
+                    box-sizing: border-box;
+                    background-color: #fffdf7;
+                    background-image: radial-gradient(#d9d4c3 1.2px, transparent 1.2px);
+                    background-size: 22px 22px;
                 }
 
                 .contact-page h1 {
-                    margin: 0 0 40px;
-                    padding-bottom: 14px;
-                    font-size: 14px;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    letter-spacing: 4px;
-                    border-bottom: 1px solid #111;
+                    position: relative;
+                    z-index: 0;
+                    display: table;
+                    margin: 0 auto 48px;
+                    font-size: 46px;
+                    font-weight: 800;
+                    letter-spacing: -1.5px;
+                    text-transform: none;
+                    border-bottom: none;
+                }
+
+                .contact-page h1::after {
+                    content: "";
+                    position: absolute;
+                    left: -10px;
+                    right: -10px;
+                    bottom: 4px;
+                    height: 18px;
+                    background: linear-gradient(90deg, #ffd6d6, #fff3b0, #d6e9ff);
+                    border-radius: 6px;
+                    transform: rotate(-1.5deg);
+                    z-index: -1;
+                }
+
+                .contact-page h1::before {
+                    content: "✏️";
+                    position: absolute;
+                    top: -18px;
+                    right: -38px;
+                    font-size: 28px;
+                    transform: rotate(18deg);
+                    animation: wiggle 2.4s ease-in-out infinite;
                 }
 
                 .contact-layout {
@@ -45,8 +73,10 @@ function Contact() {
                     max-width: 960px;
                     margin: 0 auto;
                     overflow: hidden;
-                    border: 1px solid #e5e5e5;
+                    background: #fffef9;
+                    border: 2px solid #111;
                     border-radius: 14px;
+                    box-shadow: 8px 8px 0 #111;
                 }
 
                 /* Panneau gauche */
@@ -55,8 +85,11 @@ function Contact() {
                     flex-direction: column;
                     gap: 28px;
                     padding: 48px 36px;
-                    color: #fff;
-                    background: #111;
+                    color: #111;
+                    background-color: #f5efdc;
+                    background-image: radial-gradient(#d2cbb2 1.2px, transparent 1.2px);
+                    background-size: 22px 22px;
+                    border-right: 2px solid #111;
                 }
 
                 .contact-info h2 {
@@ -67,14 +100,17 @@ function Contact() {
                 }
 
                 .contact-info h2 span {
-                    border-bottom: 4px solid #fff;
+                    padding: 0 6px;
+                    background: #ffd84d;
+                    border-radius: 4px;
                 }
 
                 .contact-info > p {
                     margin: 0;
                     font-size: 15px;
+                    font-weight: 500;
                     line-height: 1.8;
-                    color: #a3a3a3;
+                    color: #444;
                 }
 
                 .contact-items {
@@ -86,28 +122,41 @@ function Contact() {
 
                 .contact-item {
                     padding-top: 16px;
-                    border-top: 1px solid #333;
+                    border-top: 2px dashed #bbb;
                 }
 
                 .contact-item small {
                     display: block;
                     margin-bottom: 6px;
                     font-size: 11px;
-                    font-weight: 600;
+                    font-weight: 700;
                     text-transform: uppercase;
                     letter-spacing: 2px;
-                    color: #777;
+                    color: #888;
                 }
 
                 .contact-item span {
                     font-size: 15px;
-                    color: #fff;
+                    font-weight: 600;
+                    color: #111;
                 }
 
-                /* Formulaire */
+                /* Formulaire = page de cahier */
                 .contact-page .form {
-                    padding: 48px 36px;
-                    background: #fff;
+                    position: relative;
+                    padding: 48px 36px 48px 64px;
+                    background: #fffef9;
+                }
+
+                /* marge rouge dyal cahier */
+                .contact-page .form::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 44px;
+                    width: 2px;
+                    background: #ff9f9f;
                 }
 
                 .contact-page .form form {
@@ -124,35 +173,52 @@ function Contact() {
 
                 .field label {
                     font-size: 12px;
-                    font-weight: 600;
+                    font-weight: 700;
                     text-transform: uppercase;
-                    letter-spacing: 2px;
-                    color: #555;
+                    letter-spacing: 3px;
+                    color: #888;
                 }
 
                 .contact-page .form input,
                 .contact-page .form textarea {
                     width: 100%;
                     box-sizing: border-box;
-                    padding: 13px 16px;
+                    padding: 12px;
                     font-size: 14px;
                     font-family: inherit;
                     color: #111;
-                    background: #fff;
-                    border: 1px solid #ccc;
-                    border-radius: 8px;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 2px dashed #bbb;
+                    border-radius: 0;
                     outline: none;
-                    transition: border-color 0.2s ease;
+                    transition: border-color 0.2s ease, background 0.2s ease;
                 }
 
+                .contact-page .form input {
+                    font-weight: 700;
+                    font-size: 16px;
+                }
+
+                /* textarea b khotout dyal cahier */
                 .contact-page .form textarea {
-                    line-height: 1.6;
+                    min-height: 150px;
+                    line-height: 28px;
                     resize: vertical;
+                    border-bottom: none;
+                    background-image: repeating-linear-gradient(
+                        transparent,
+                        transparent 27px,
+                        #cfe0f5 27px,
+                        #cfe0f5 28px
+                    );
+                    background-attachment: local;
                 }
 
                 .contact-page .form input::placeholder,
                 .contact-page .form textarea::placeholder {
                     color: #999;
+                    font-weight: 400;
                 }
 
                 .contact-page .form input:focus,
@@ -160,31 +226,42 @@ function Contact() {
                     border-color: #111;
                 }
 
+                .contact-page .form input:focus {
+                    background: #fff8d6;
+                }
+
                 .char-count {
                     align-self: flex-end;
                     font-size: 12px;
-                    color: #999;
+                    font-weight: 600;
+                    color: #888;
                 }
 
                 .contact-page .send {
                     width: 100%;
                     padding: 14px 24px;
-                    font-size: 13px;
-                    font-weight: 600;
+                    font-size: 14px;
+                    font-weight: 800;
                     font-family: inherit;
+                    letter-spacing: 1.5px;
                     text-transform: uppercase;
-                    letter-spacing: 2px;
-                    color: #fff;
-                    background: #111;
-                    border: 1px solid #111;
-                    border-radius: 8px;
+                    color: #111;
+                    background: #ffd84d;
+                    border: 2px solid #111;
+                    border-radius: 999px;
+                    box-shadow: 4px 4px 0 #111;
                     cursor: pointer;
-                    transition: background 0.2s ease, color 0.2s ease;
+                    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
                 }
 
                 .contact-page .send:hover {
-                    background: #fff;
-                    color: #111;
+                    transform: translate(-3px, -3px) rotate(-1deg);
+                    box-shadow: 7px 7px 0 #111;
+                }
+
+                .contact-page .send:active {
+                    transform: translate(2px, 2px);
+                    box-shadow: 1px 1px 0 #111;
                 }
 
                 /* Message envoye */
@@ -195,6 +272,7 @@ function Contact() {
                     justify-content: center;
                     gap: 16px;
                     height: 100%;
+                    animation: pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
                 }
 
                 .sent-check {
@@ -204,9 +282,11 @@ function Contact() {
                     width: 48px;
                     height: 48px;
                     font-size: 22px;
-                    color: #fff;
-                    background: #111;
+                    color: #111;
+                    background: #b8f0b0;
+                    border: 2px solid #111;
                     border-radius: 50%;
+                    box-shadow: 3px 3px 0 #111;
                 }
 
                 .sent-box h3 {
@@ -218,40 +298,58 @@ function Contact() {
                 .sent-box p {
                     margin: 0;
                     font-size: 15px;
+                    font-weight: 500;
                     line-height: 1.8;
-                    color: #555;
+                    color: #444;
                 }
 
                 .sent-box button {
                     margin-top: 8px;
-                    padding: 12px 22px;
+                    padding: 12px 24px;
                     font-size: 13px;
-                    font-weight: 600;
+                    font-weight: 700;
                     font-family: inherit;
-                    text-transform: uppercase;
-                    letter-spacing: 2px;
                     color: #111;
                     background: #fff;
-                    border: 1px solid #111;
-                    border-radius: 8px;
+                    border: 2px solid #111;
+                    border-radius: 999px;
+                    box-shadow: 3px 3px 0 #111;
                     cursor: pointer;
-                    transition: background 0.2s ease, color 0.2s ease;
+                    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
                 }
 
                 .sent-box button:hover {
-                    color: #fff;
-                    background: #111;
+                    background: #d6e9ff;
+                    transform: translate(-2px, -2px);
+                    box-shadow: 5px 5px 0 #111;
+                }
+
+                @keyframes pop {
+                    0% { opacity: 0; transform: scale(0.85) rotate(-3deg); }
+                    100% { opacity: 1; }
+                }
+
+                @keyframes wiggle {
+                    0%, 100% { transform: rotate(18deg); }
+                    50% { transform: rotate(-4deg) translateY(-3px); }
                 }
 
                 @media (max-width: 800px) {
                     .contact-layout { grid-template-columns: 1fr; }
-                    .contact-info { padding: 36px 24px; }
+                    .contact-info {
+                        padding: 36px 24px;
+                        border-right: none;
+                        border-bottom: 2px solid #111;
+                    }
                     .contact-items { margin-top: 8px; }
-                    .contact-page .form { padding: 36px 24px; }
+                    .contact-page .form { padding: 36px 24px 36px 52px; }
+                    .contact-page .form::before { left: 32px; }
                 }
 
                 @media (max-width: 560px) {
                     .contact-page { padding: 48px 6% 56px; }
+                    .contact-page h1 { font-size: 34px; }
+                    .contact-page h1::before { right: -30px; font-size: 22px; }
                 }
             `}</style>
 
