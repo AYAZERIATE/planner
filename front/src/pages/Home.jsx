@@ -1,87 +1,113 @@
-import person1 from "../assets/person1.jpg";
-import person2 from "../assets/person2.jpg";
-import person3 from "../assets/person3.jpg";
-
-
 function Home() {
     return (
         <div className="home-page">
             <style>{`
                 .home-page {
-                    padding: 90px 8% 100px;
-                    background: linear-gradient(145deg, #ffffff 0%, #ececec 100%);
-                    color: #000;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    min-height: 100vh;
+                    padding: 90px 16px 100px;
+                    text-align: center;
+                    color: #111;
                     font-family: "Inter", "Segoe UI", Arial, sans-serif;
+                    box-sizing: border-box;
+                    background-color: #fffdf7;
+                    background-image: radial-gradient(#d9d4c3 1.2px, transparent 1.2px);
+                    background-size: 22px 22px;
                 }
 
                 .home-page .title h1 {
+                    position: relative;
+                    z-index: 0;
+                    display: inline-block;
                     margin: 0 0 24px;
                     font-size: clamp(38px, 7vw, 80px);
                     font-weight: 800;
+                    letter-spacing: -1.5px;
                     line-height: 1.15;
-                    text-shadow: 3px 3px 0 #ccc;
+                }
+
+                .home-page .title h1::after {
+                    content: "";
+                    position: absolute;
+                    left: -10px;
+                    right: -10px;
+                    bottom: 6px;
+                    height: 22px;
+                    background: linear-gradient(90deg, #ffd6d6, #fff3b0, #d6e9ff);
+                    border-radius: 6px;
+                    transform: rotate(-1.5deg);
+                    z-index: -1;
+                }
+
+                .home-page .title h1::before {
+                    content: "✏️";
+                    position: absolute;
+                    top: -22px;
+                    right: -38px;
+                    font-size: 32px;
+                    transform: rotate(18deg);
+                    animation: wiggle 2.4s ease-in-out infinite;
                 }
 
                 .home-page .title h4 {
                     margin: 0 0 64px;
                     font-size: 14px;
-                    font-weight: 700;
+                    font-weight: 800;
                     text-transform: uppercase;
                     letter-spacing: 4px;
-                    color: #444;
+                    color: #777;
                 }
 
                 .home-page .app-plan {
-                    margin-bottom: 64px;
+                    position: relative;
+                    width: 100%;
+                    max-width: 560px;
                     padding: 32px 28px;
-                    background: #fff;
-                    border: 2px solid #000;
-                    border-radius: 10px;
-                    box-shadow: 6px 6px 0 #000;
-                    transition: transform 0.2s ease, box-shadow 0.2s ease,
-                                background 0.2s ease, color 0.2s ease;
+                    background: #fff3b0;
+                    border: 2px solid #111;
+                    border-radius: 4px 4px 18px 4px;
+                    box-shadow: 6px 6px 0 #111;
+                    box-sizing: border-box;
+                    transform: rotate(-1.5deg);
+                    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+                }
+
+                /* scotch f lfo9 */
+                .home-page .app-plan::before {
+                    content: "";
+                    position: absolute;
+                    top: -13px;
+                    left: 50%;
+                    width: 78px;
+                    height: 24px;
+                    background: rgba(255, 255, 255, 0.7);
+                    border: 1.5px dashed rgba(0, 0, 0, 0.3);
+                    transform: translateX(-50%) rotate(-3deg);
                 }
 
                 .home-page .app-plan:hover {
-                    background: #000;
-                    color: #fff;
-                    transform: translate(-3px, -3px);
-                    box-shadow: 10px 10px 0 #777;
+                    transform: translate(-3px, -6px) rotate(0deg) scale(1.03);
+                    box-shadow: 10px 11px 0 #111;
                 }
 
                 .home-page .app-plan h4 {
                     margin: 0;
                     font-size: 22px;
-                    font-weight: 700;
+                    font-weight: 800;
                     line-height: 1.5;
                 }
 
-                .home-page .start-up > div {
-                    display: grid;
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 32px;
-                }
-
-                .home-page .start-up img {
-                    width: 100%;
-                    max-height: 360px;
-                    object-fit: cover;
-                    padding: 8px;
-                    background: #fff;
-                    border: 2px solid #000;
-                    border-radius: 14px;
-                    box-shadow: 8px 8px 0 #000, 14px 14px 28px rgba(0, 0, 0, 0.25);
-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
-                }
-
-                .home-page .start-up img:hover {
-                    transform: translate(-3px, -3px);
-                    box-shadow: 11px 11px 0 #000, 18px 18px 32px rgba(0, 0, 0, 0.25);
+                @keyframes wiggle {
+                    0%, 100% { transform: rotate(18deg); }
+                    50% { transform: rotate(-4deg) translateY(-3px); }
                 }
 
                 @media (max-width: 700px) {
                     .home-page { padding: 56px 6% 64px; }
-                    .home-page .start-up > div { grid-template-columns: 1fr; }
+                    .home-page .title h1::before { right: -30px; font-size: 24px; }
                 }
             `}</style>
 
@@ -96,15 +122,6 @@ function Home() {
 
             <div className="app-plan">
                 <h4>An AI integrated directly into your workspace.</h4>
-            </div>
-
-            <div className="start-up">
-                <div>
-                    <img src={person1} alt="Person 1" />
-                    <img src={person2} alt="Person 2" />
-                    <img src={person3} alt="Person 3" />
-
-                </div>
             </div>
         </div>
     );
