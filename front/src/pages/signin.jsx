@@ -12,84 +12,99 @@ function Signin() {
 
     return (
         <main className="signup-page">
-            <style>{`
-                .signup-page {
-                    display: grid;
-                    min-height: 100vh;
-                    place-items: center;
-                    padding: 24px;
-                    background: #f5f5f5;
-                    color: #171717;
-                    font-family: "Inter", "Segoe UI", Arial, sans-serif;
-                }
-                .signup-card {
-                    width: min(100%, 420px);
-                    padding: 40px;
-                    background: #fff;
-                    border: 1px solid #e5e5e5;
-                    border-radius: 16px;
-                    box-shadow: 0 16px 48px rgb(0 0 0 / 8%);
-                }
-                .signup-card h1 {
-                    margin: 0 0 8px;
-                    font-size: 30px;
-                }
-                .signup-description {
-                    margin: 0 0 28px;
-                    color: #737373;
-                    line-height: 1.5;
-                }
-                .signup-form {
-                    display: grid;
-                    gap: 18px;
-                }
-                .signup-field {
-                    display: grid;
-                    gap: 8px;
-                    font-size: 14px;
-                    font-weight: 600;
-                }
-                .signup-field input {
-                    width: 100%;
-                    padding: 12px 14px;
-                    border: 1px solid #d4d4d4;
-                    border-radius: 8px;
-                    font: inherit;
-                }
-                .signup-field input:focus {
-                    border-color: #171717;
-                    outline: 2px solid rgb(23 23 23 / 12%);
-                }
-                .signup-submit {
-                    margin-top: 4px;
-                    padding: 13px 16px;
-                    border: 1px solid #111;
-                    border-radius: 8px;
-                    background: #111;
-                    color: #fff;
-                    font: inherit;
-                    font-weight: 600;
-                    cursor: pointer;
-                }
-                .signup-submit:hover {
-                    background: #333;
-                }
-                .signup-login {
-                    margin: 24px 0 0;
-                    color: #737373;
-                    text-align: center;
-                    font-size: 14px;
-                }
-                .signup-login a {
-                    color: #171717;
-                    font-weight: 600;
-                }
-                @media (max-width: 480px) {
-                    .signup-card {
-                        padding: 28px 22px;
-                    }
-                }
-            `}</style>
+           <style>{`
+    .signup-page {
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+        padding: 24px;
+        background-color: #fffbea;
+        background-image: radial-gradient(#d8d0b0 1.2px, transparent 1.2px);
+        background-size: 20px 20px;
+        color: #111;
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    }
+    .signup-card {
+        width: min(100%, 420px);
+        padding: 40px;
+        background: #fff;
+        border: 2px solid #111;
+        border-radius: 12px;
+        box-shadow: 8px 8px 0 #111;
+    }
+    .signup-card h1 {
+        display: inline-block;
+        margin: 0 0 10px;
+        font-size: 30px;
+        font-weight: 800;
+        background: linear-gradient(transparent 60%, #ffd84d 60%);
+    }
+    .signup-description {
+        margin: 0 0 28px;
+        color: #444;
+        line-height: 1.5;
+    }
+    .signup-form {
+        display: grid;
+        gap: 18px;
+    }
+    .signup-field {
+        display: grid;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 700;
+    }
+    .signup-field input {
+        width: 100%;
+        padding: 12px 14px;
+        border: 2px solid #111;
+        border-radius: 8px;
+        background: #fff;
+        font: inherit;
+    }
+    .signup-field input:focus {
+        outline: none;
+        box-shadow: 4px 4px 0 #ffd84d;
+    }
+    .signup-submit {
+        margin-top: 4px;
+        padding: 13px 16px;
+        border: 2px solid #111;
+        border-radius: 8px;
+        background: #ffd84d;
+        color: #111;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 4px 4px 0 #111;
+        transition: transform 0.1s, box-shadow 0.1s;
+    }
+    .signup-submit:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0 #111;
+    }
+    .signup-submit:active {
+        transform: translate(4px, 4px);
+        box-shadow: 0 0 0 #111;
+    }
+    .signup-login {
+        margin: 24px 0 0;
+        color: #444;
+        text-align: center;
+        font-size: 14px;
+    }
+    .signup-login a {
+        color: #111;
+        font-weight: 700;
+        background: linear-gradient(transparent 60%, #ffd84d 60%);
+        text-decoration: none;
+    }
+    @media (max-width: 480px) {
+        .signup-card {
+            padding: 28px 22px;
+        }
+    }
+`}</style>
 
             <section className="signup-card" aria-labelledby="signup-title">
                 <h1 id="signup-title">Create your account</h1>
