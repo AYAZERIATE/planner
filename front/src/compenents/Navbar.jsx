@@ -116,7 +116,7 @@ function Navbar() {
                     />
                 </div>
                 <div className="button-dashboard">
-                    <button onClick={() => navigate("/dashboard")}>open planner</button>
+                    <button onClick={() => navigate("/signin")}>open planner</button>
                 </div>
             </div>
         </div>

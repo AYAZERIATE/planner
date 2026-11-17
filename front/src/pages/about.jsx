@@ -486,7 +486,7 @@ function About() {
             <div className="about-cta">
                 <h3>Ready to take control of your studies?</h3>
                 <p>Join the students who turn plans into results.</p>
-                <Link to="/dashboard">Open planner</Link>
+                <Link to="/signin">Open planner</Link>
             </div>
         </div>
     );

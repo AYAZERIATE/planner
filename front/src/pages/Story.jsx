@@ -560,7 +560,7 @@ function Story() {
           part of it.
         </h2>
         <span>MAKE A PLAN. MAKE IT HAPPEN. MAKE A DIFFERENCE.</span>
-        <Link to="/dashboard" className="story-cta">Open planner</Link>
+        <Link to="/signin" className="story-cta">Open planner</Link>
       </section>
 
     </main>
